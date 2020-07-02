@@ -3,12 +3,16 @@
   
   <script>
 function myFunction2() {
-  var cookieEnabled = navigator.cookieEnabled;
-  if (cookieEnabled) {
-alert("3rd party cookies enabled");
-} else {
-alert("not 3rd party cookies enabled");
-}
+  //var cookieEnabled = navigator.cookieEnabled;
+
+    document.cookie = "ThirdPartyCookie=yes;";
+     if (document.cookie.indexOf("ThirdPartyCookie=") > -1)
+     {
+       alert("3rd party cookies enabled");
+       } 
+    else {
+     alert("not 3rd party cookies enabled");
+      }
   }
 
 </script>
