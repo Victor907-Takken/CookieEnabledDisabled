@@ -1,18 +1,26 @@
 <html>
 <head>
   
-  <script>
+ <script>
 function myFunction2() {
   //var cookieEnabled = navigator.cookieEnabled;
 
-    document.cookie = "ThirdPartyCookie=yes;";
-     if (document.cookie.indexOf("ThirdPartyCookie=") > -1)
-     {
-       alert("3rd party cookies enabled");
-       } 
-    else {
-     alert("not 3rd party cookies enabled");
-      }
+ let cookieEnabled = window.navigator.cookieEnabled;
+ alert('cookieEnabled'+cookieEnabled);
+    if (cookieEnabled) 
+	{
+        document.cookie = 'testcookie=testcookie';
+        alert('document.cookie'+document.cookie);
+        cookieEnabled = document.cookie.indexOf('testcookie=testcookie') !== -1;
+        if (!cookieEnabled) 
+		{
+        alert('entered here');
+        document.cookie = 'testcookie=testcookie; SameSite=None; Secure';
+        cookieEnabled =
+        document.cookie.indexOf('testcookie=testcookie') !== -1;
+        alert('cookieEnabled in else'+cookieEnabled);
+        }
+   }
   }
 
 </script>
